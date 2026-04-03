@@ -16,17 +16,14 @@ namespace YoutubeExplode;
 internal class YoutubeHttpHandler : ClientDelegatingHandler
 {
     private readonly CookieContainer _cookieContainer = new();
-    private string nekoPlayerAppVersion = string.Empty;
 
     public YoutubeHttpHandler(
         HttpClient http,
         IReadOnlyList<Cookie> initialCookies,
-        string nekoPlayerAppVersion,
         bool disposeClient = false
     )
         : base(http, disposeClient)
     {
-        this.nekoPlayerAppVersion = nekoPlayerAppVersion;
         // Consent to the use of cookies on YouTube.
         // This is required to access some personalized content, such as mix playlists.
         // https://github.com/Tyrrrz/YoutubeExplode/issues/730
@@ -114,7 +111,7 @@ internal class YoutubeHttpHandler : ClientDelegatingHandler
         {
             request.Headers.Add(
                 "User-Agent",
-                $"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 NekoPlayer/{nekoPlayerAppVersion}"
+                $"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
             );
         }
 

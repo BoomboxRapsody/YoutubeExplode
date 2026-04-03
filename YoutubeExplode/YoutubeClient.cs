@@ -22,12 +22,11 @@ public class YoutubeClient : IDisposable
     /// </summary>
     public YoutubeClient(
         HttpClient http,
-        IReadOnlyList<Cookie> initialCookies,
-        string nekoPlayerAppVersion
+        IReadOnlyList<Cookie> initialCookies
     )
     {
         _youtubeHttp = new HttpClient(
-            new YoutubeHttpHandler(http, initialCookies, nekoPlayerAppVersion),
+            new YoutubeHttpHandler(http, initialCookies),
             true
         );
 
@@ -41,25 +40,19 @@ public class YoutubeClient : IDisposable
     /// Initializes an instance of <see cref="YoutubeClient" />.
     /// </summary>
     public YoutubeClient(HttpClient http)
-        : this(http, [], "2026.404.0") { }
+        : this(http, []) { }
 
     /// <summary>
     /// Initializes an instance of <see cref="YoutubeClient" />.
     /// </summary>
     public YoutubeClient(IReadOnlyList<Cookie> initialCookies)
-        : this(Http.Client, initialCookies, "2026.404.0") { }
+        : this(Http.Client, initialCookies) { }
 
     /// <summary>
     /// Initializes an instance of <see cref="YoutubeClient" />.
     /// </summary>
     public YoutubeClient()
         : this(Http.Client) { }
-
-    /// <summary>
-    /// Initializes an instance of <see cref="YoutubeClient" />.
-    /// </summary>
-    public YoutubeClient(string nekoPlayerAppVersion)
-        : this(Http.Client, [], nekoPlayerAppVersion) { }
 
     /// <summary>
     /// Operations related to YouTube videos.
