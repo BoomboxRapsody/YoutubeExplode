@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Globalization;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
@@ -119,8 +120,8 @@ internal class VideoController(HttpClient http)
                   "osVersion": "12L",
                   "platform": "MOBILE",
                   "visitorData": {{Json.Encode(visitorData)}},
-                  "hl": "en",
-                  "gl": "US",
+                  "hl": "{{CultureInfo.CurrentCulture.Name[0..1]}}",
+                  "gl": "{{CultureInfo.CurrentCulture.Name[3..4]}}",
                   "utcOffsetMinutes": 0
                 }
               }

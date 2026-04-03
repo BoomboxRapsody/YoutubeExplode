@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Globalization;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using YoutubeExplode.Bridge;
@@ -30,8 +31,8 @@ internal class PlaylistController(HttpClient http)
                 "client": {
                   "clientName": "WEB",
                   "clientVersion": "2.20210408.08.00",
-                  "hl": "en",
-                  "gl": "US",
+                  "hl": "{{CultureInfo.CurrentCulture.Name[0..1]}}",
+                  "gl": "{{CultureInfo.CurrentCulture.Name[3..4]}}",
                   "utcOffsetMinutes": 0
                 }
               }
@@ -80,8 +81,8 @@ internal class PlaylistController(HttpClient http)
                     "client": {
                       "clientName": "WEB",
                       "clientVersion": "2.20210408.08.00",
-                      "hl": "en",
-                      "gl": "US",
+                      "hl": "{{CultureInfo.CurrentCulture.Name[0..1]}}",
+                      "gl": "{{CultureInfo.CurrentCulture.Name[3..4]}}",
                       "utcOffsetMinutes": 0,
                       "visitorData": {{Json.Encode(visitorData)}}
                     }
