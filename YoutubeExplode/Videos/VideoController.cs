@@ -120,8 +120,8 @@ internal class VideoController(HttpClient http)
                   "osVersion": "12L",
                   "platform": "MOBILE",
                   "visitorData": {{Json.Encode(visitorData)}},
-                  "hl": "{{CultureInfo.CurrentCulture.Name[0..1]}}",
-                  "gl": "{{CultureInfo.CurrentCulture.Name[3..4]}}",
+                  "hl": "{{CultureInfo.CurrentCulture.Name[..1]}}",
+                  "gl": "{{CultureInfo.CurrentCulture.Name[3..]}}",
                   "utcOffsetMinutes": 0
                 }
               }

@@ -38,8 +38,8 @@ internal class SearchController(HttpClient http)
                 "client": {
                   "clientName": "WEB",
                   "clientVersion": "2.20210408.08.00",
-                  "hl": "{{CultureInfo.CurrentCulture.Name[0..1]}}",
-                  "gl": "{{CultureInfo.CurrentCulture.Name[3..4]}}",
+                  "hl": "{{CultureInfo.CurrentCulture.Name[..1]}}",
+                  "gl": "{{CultureInfo.CurrentCulture.Name[3..]}}",
                   "utcOffsetMinutes": 0
                 }
               }
